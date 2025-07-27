@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <title>Birthday Surprise!</title>
+      <style>
+       *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+       }
+       body , html {
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+       }
+       .page{
+        display:center;
+        height:100vh;
+        width: 100%;
+        background-size: cover;
+        background-position:center;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+        background-color: black;
+       }
+       #page1
+       {
+        display: flex;
+        background:black;
+       }
+       @keyframes shake
+       {
+        0%{transform:translate(0,0);}
+        25%{transform: translate(-5px,-5px);}
+         50%{transform: translate(5px,-5px);}
+          75%{transform: translate(-5px,-5px);}
+           100%{transform: translate(0,0);}
+       }
+       .gift-img{
+        width:500px;
+        background-position: center;
+        animation:shake 1s infinite;
+        transition: transform 0.2s;
+       }
+       
+       button{
+        padding: 10px 30px;
+        font-size: 18px;
+        background-color: #ff40b9;
+        color:wheat;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        margin-top: 15px;
+        transition: background 0.3s ease;
+        
+       }
+       button:hover{
+        background-color:#391ee9;
+       }
+      #page2{
+        background:url(goku.jpg);
+        position: relative;
+        width:100%;
+height: 100%;
+      }
+      .overlay{
+        background-color:rgba(125, 122, 122, 0.9);
+        padding: 30px;
+        border-radius: 20px;
+        color:white;
+      }
+
+      input{
+    padding: 10px;
+    font-size: 16px;
+    margin-top:10px;
+    width: 200px;
+    border:3px solid #40f9ff;
+    border-radius: 8px;
+    position: center;
+    }
+    #page3 {
+      flex-direction: row;
+      background:black;
+      justify-content: flex-start;
+      align-items: center;
+      padding:40px;
+      position: relative;
+    }
+    .photo{
+      flex: 1;
+      flex-direction: column;
+      display: flex;
+      height: auto;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      box-shadow:  0 0 10px#fff;
+    }
+    .text-section{
+      flex:1.5;
+      display:flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items:flex-start;
+      padding-top: 10px;
+    }
+    #greetingTitle{
+  position: right;
+    top: 20px;
+     color: #ff00ff;
+     width: 80%;
+     font-size:40px;
+     text-align: center;
+     text-shadow:0 0 5px #ff00ff,0 0 10px #ff33ff,0 0 20px #ff66ff;
+     animation:glowBlinkTitle 3s infinite;
+     font-weight: bold;
+     z-index: 10;
+    }
+    
+    #typedText{
+      font-size: 20px;
+      color:#00f0ff;
+      max-width: 90%;
+      margin-bottom:50px;
+      line-height: 1.6;
+      text-align: center;
+      white-space: pre-line;
+      animation: glowneonBlink 3s ;
+    }
+    @keyframes glowBlinkTitle{
+      0%{
+        opacity:1;
+        text-shadow:0 0  5px #ff00ff, 0 0 15px #ff33ff,0 0 25px #ff66ff ;
+      }
+        50%{
+          opacity:0.5;
+          text-shadow: 0 0 3px #ff00ff, 0 0 8px #ff33ff;
+      }
+      100%{
+        opacity:0.5;
+        text-shadow: 0 0 6px #ff00ff, 0 0 12px #ff66ff;
+      }
+      }
+      @keyframes glowneonBlink {
+       0%{
+        opacity:1;
+        text-shadow:0 0 5px #0ff, 0 0 10px #0ff,0 0 5px #0ff;
+       }50%{
+        opacity:0.5;
+          text-shadow: 0 0 3px #0ff,0 0 8px #0ff;
+       }
+       100%{
+        opacity:0.5;
+        text-shadow:0 0 6px #0ff, 0 0 12px #0ff;
+       }        
+      }
+      
+    #page4{
+     font-size: 28px;
+     background-color: orchid;
+     color:black;
+     justify-content :center;
+     }
+    #finalName{
+     color:#ff4081;
+    font-weight: bold;
+    }
+
+</style>
+       </head>
+     
+      <body>
+        <section class="page" id="page1">
+        <img src="gift.png" alt="gift" class="gift-img">
+        <button onclick="startSoundAndGo()">Open the Gift🎁</button>
+        <audio id="timersound" src="bomb timer.mp3" loop></audio></section>
+        <section class="page" id="page2">
+            <div class="overlay"><h2>Type your name ? </h2>
+            <input type="text" id="nameInput" placeholder="Type here..."><br>
+         <button onclick="saveName(),goToPage(3)">Next</button></br>
+            </br></div></br></div></section>
+            <section class="page" id = "page3">
+              <img src="anna.jpg" alt="bg2" class = "photo">
+              <div class="text-section">
+               <h2 id="greetingTitle">HAPPY BIRTHDAY SIVA ANNA🎂</h2>
+           <p id="typedText"> Wishing you a wonderful year ahead filled with 😊happiness,💼success,and💪 good health.
+            </br>Your way of teaching📘 makes every class interesting, fun😄and easy to understand.<br>
+            we really admire how you explain every doubt clearly and quickly-even find errors within a second!🖥️.</br>
+      Have a great day and an even greater year ahead🎈
+            <button onclick="goToPage(4)">Next</button></div>
+            </section>
+            <section class="page" id="page4">
+              <h2>Thank you for being such a supportive🫱🏻‍🫲🏻 and inspiring🌟 Anna! please continue teaching and sharing your knowledge with everyone!<span id="finalName"></span></h2>
+                <p>-End by Renu✨</p></section>
+                <audio id="birthdaysong" src="song.mp3"autoplay loop controls></audio>
+        <script>  
+        let userName="Siva";
+        function startSoundAndGo()
+        {
+          const tick=document.getElementById("timersound");
+          tick.play().then(() =>{
+            console.log("sound playing...");
+            setTimeout(()=>{
+              tick.pause();
+              tick.currentTime=0;
+              goToPage(2);},9000)
+            }).catch((err)=>{
+              console.warn("sound blocked,skipping to page 2.");
+              goToPage(2);}
+            )}
+        function goToPage (pagenumber)
+        {
+            document.querySelectorAll('.page').forEach(p=>p.style.display='none');
+           const nextPage= document.getElementById(`page${pagenumber}`).style.display='flex';
+            if(nextPage){
+                nextPage.style.display='flex';
+            }else{alert("pagenot found:"+pagenumber);
+            }}
+            if(pagenumber===4){
+              document.getElementById("finalName").innertext=username
+              console.log("changing to page 3...");
+              goToPage(3);
+            }
+            function saveName(){
+              const input=document.getElementById("nameInput").value.trim();
+              if(!input){
+                alert("please enter your name!");
+                return;
+                goToPage(3);
+              }
+            }
+            
+            userName=input;
+          document.getElementById("greetingTitle").innerText=`Happy Birthday${Siva.toUpperCase()}🎉`;
+          goToPage(3);
+             
+          
+</script>
+</html>
